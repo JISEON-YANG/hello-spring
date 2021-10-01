@@ -19,6 +19,8 @@ public class SpringConfig {
      * public MemberController(MemberService memberService){
      *         this.memberService = memberService;
      * }
+     * 의존성을 주입을 위해 빈에 등록된 객체 중에서 찾고 있고 있기 때문에, 해당 정보가 없으면 생성자부터 에러가 발생함 = 기본값이 true이기 때문
+     * 해당 타입의 Bean이 여러개일 경우, 스프링은 어떤 것을 해야할지 알지 못함, 이때는 등록하고 싶은 객체에 @Primary를 추가해서 붙여줄 수 있음
      * -----------------------------------------------------
      * 2) 직접 자바 Bean 등록 --> @Configuration 지정필요
      * 스프링이 뜰때 Config파일을 읽고 스프링 빈에 등록
