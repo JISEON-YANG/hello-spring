@@ -24,9 +24,27 @@ public class MemberService {
     // 회원가입
     // 중복 회원 안됨(이름)
     public Long join(Member member){
+        /**
+         * 메소드 호출시간 체크(기본적인 방법) --> 모든 메소드에 추가해줘야 함
+         * long start = System.currentTimeMillis();
+         * try{
+         * 	// 중복회원 검증
+         *             validateDuplicateMember(member);
+         *             memberRepository.save(member);
+         *             return member.getId();
+         * }finally {
+         *             long finish = System.currentTimeMillis();
+         *             long timeMs = finish - start;
+         *             System.out.println("join = " + timeMs + "ms");
+         * }
+         * -------------------------------------------------------
+         * 모든 메소드에 추가하지 않고, AOP 적용
+         * 호출시간을 측정하는 로직은 공통 관심 사항이다.
+         * 원하는 곳에 시간 측정 로직을 생성한 후 필요할 때마다 사용한다.
+         * --> TimeTraceAop.java 파일 생성
+         * */
         // 중복회원 검증
         validateDuplicateMember(member);
-
         memberRepository.save(member);
         return member.getId();
     }

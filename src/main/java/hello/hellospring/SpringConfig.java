@@ -41,4 +41,14 @@ public class SpringConfig {
         return new MemoryMemberRepository();
     }
 
+    /**
+     * 호출 시간 등록
+     * @Bean
+     *     public TimeTraceAop timeTraceAop(){
+     *         return new TimeTraceAop();
+     *     }
+     */
+
+
+
 }
